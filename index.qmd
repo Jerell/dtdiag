@@ -25,10 +25,6 @@ maxFR = noTwoPhase.loc[
 maxFR.loc[maxFR["InletFlowrateKgps"] > 1]
 ```
 
-## Two phase and discontinuities
-
-There is often, but not always, an outlet pressure discontinuity in cases that have entered the two phase region at or before the final pipe segment.
-
 ```{python}
 
 colors = {False: "tab:blue", True: "tab:orange"}
@@ -62,6 +58,25 @@ def draw_plot(df_plot, pressureBara, temperatureCelsius):
 
 ```
 
+```{python}
+# | label: fig-nw69bara
+# | fig-cap: No well - 69 Bara, 10°C
+
+draw_plot(df, 69, 10)
+```
+
+```{python}
+# | label: fig-nw77bara
+# | fig-cap: No well - 77 Bara, 10°C
+
+draw_plot(df, 77, 10)
+```
+
+## Two phase and discontinuities
+
+There is often, but not always, an outlet pressure discontinuity in cases that have entered the two phase region at or before the final pipe segment.
+
+
 In @fig-nw80bara, the discontinuity is early in the set of cases that entered two phase.
 
 ```{python}
@@ -71,7 +86,7 @@ In @fig-nw80bara, the discontinuity is early in the set of cases that entered tw
 draw_plot(df, 80, 10)
 ```
 
-Despite entering two phase, there was no discontinuity in @fig-nw45bara.
+Despite entering two phase, there was no discontinuity in @fig-nw45bara. It doesn't seem to be the case that *just* entering the two phase region will cause a discontinuity. It could be related to where it happens, from which direction, or what pressure it happens at.
 
 ```{python}
 # | label: fig-nw45bara
@@ -86,8 +101,6 @@ draw_plot(df, 45, 10)
 
 draw_plot(df, 40, 10)
 ```
-
-It doesn't seem to be the case that *just* entering the two phase region will cause a discontinuity. It could be related to where it happens, from which direction, or what pressure it happens at.
 
 ```{python}
 # | label: fig-nw72bara
@@ -108,13 +121,6 @@ draw_plot(df, 71, 10)
 # | fig-cap: No well - 70 Bara, 10°C
 
 draw_plot(df, 70, 10)
-```
-
-```{python}
-# | label: fig-nw69bara
-# | fig-cap: No well - 69 Bara, 10°C
-
-draw_plot(df, 69, 10)
 ```
 
 # [Data](dt/solver-out-2023-04-13_151111322_(temp=10C, inc=1).txt)

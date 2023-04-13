@@ -183,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>]</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>maxFR.loc[maxFR[<span class="st">"InletFlowrateKgps"</span>] <span class="op">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 
 
@@ -236,10 +236,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="two-phase-and-discontinuities" class="level2">
-<h2 class="anchored" data-anchor-id="two-phase-and-discontinuities">Two phase and discontinuities</h2>
-<p>There is often, but not always, an outlet pressure discontinuity in cases that have entered the two phase region at or before the final pipe segment.</p>
 <div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
@@ -272,61 +268,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>In <a href="#fig-nw80bara">Figure&nbsp;1</a>, the discontinuity is early in the set of cases that entered two phase.</p>
 <div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">80</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">69</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-nw69bara" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-nw69bara-output-1.png" width="720" height="429" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: No well - 69 Bara, 10°C</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">77</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-nw77bara" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-nw77bara-output-1.png" width="720" height="429" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: No well - 77 Bara, 10°C</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="two-phase-and-discontinuities" class="level2">
+<h2 class="anchored" data-anchor-id="two-phase-and-discontinuities">Two phase and discontinuities</h2>
+<p>There is often, but not always, an outlet pressure discontinuity in cases that have entered the two phase region at or before the final pipe segment.</p>
+<p>In <a href="#fig-nw80bara">Figure&nbsp;3</a>, the discontinuity is early in the set of cases that entered two phase.</p>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">80</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-nw80bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-nw80bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: No well - 80 Bara, 10°C</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: No well - 80 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Despite entering two phase, there was no discontinuity in <a href="#fig-nw45bara">Figure&nbsp;2</a>.</p>
-<div class="cell" data-execution_count="4">
+<p>Despite entering two phase, there was no discontinuity in <a href="#fig-nw45bara">Figure&nbsp;4</a>. It doesn’t seem to be the case that <em>just</em> entering the two phase region will cause a discontinuity. It could be related to where it happens, from which direction, or what pressure it happens at.</p>
+<div class="cell" data-execution_count="6">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">45</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">45</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-nw45bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-nw45bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: No well - 45 Bara, 10°C</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="5">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">40</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-nw40bara" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-nw40bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: No well - 40 Bara, 10°C</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>It doesn’t seem to be the case that <em>just</em> entering the two phase region will cause a discontinuity. It could be related to where it happens, from which direction, or what pressure it happens at.</p>
-<div class="cell" data-execution_count="6">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">72</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-nw72bara" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-nw72bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: No well - 72 Bara, 10°C</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: No well - 45 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -334,13 +333,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="7">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">71</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">40</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-nw71bara" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-nw40bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig-nw71bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: No well - 71 Bara, 10°C</figcaption><p></p>
+<p><img src="index_files/figure-html/fig-nw40bara-output-1.png" width="720" height="429" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5: No well - 40 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -348,13 +347,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="8">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">70</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">72</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-nw70bara" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-nw72bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig-nw70bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6: No well - 70 Bara, 10°C</figcaption><p></p>
+<p><img src="index_files/figure-html/fig-nw72bara-output-1.png" width="720" height="429" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6: No well - 72 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -362,13 +361,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="9">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">69</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">71</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-nw69bara" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-nw71bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig-nw69bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7: No well - 69 Bara, 10°C</figcaption><p></p>
+<p><img src="index_files/figure-html/fig-nw71bara-output-1.png" width="720" height="429" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7: No well - 71 Bara, 10°C</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">70</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-nw70bara" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-nw70bara-output-1.png" width="720" height="429" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8: No well - 70 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -376,12 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data" class="level1">
 <h1><a href="dt/solver-out-2023-04-13_151111322_(temp=10C, inc=1).txt">Data</a></h1>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <div>
 
 
