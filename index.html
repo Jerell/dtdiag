@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.306">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,10 +17,9 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,13 +46,43 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,19 +140,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">Flowrate and outlet pressure</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link active" href="./index.html" aria-current="page">
  <span class="menu-text">No wells</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -141,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#two-phase-and-discontinuities" id="toc-two-phase-and-discontinuities" class="nav-link" data-scroll-target="#two-phase-and-discontinuities">Two phase and discontinuities</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Jerell/dtdiag/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Jerell/dtdiag/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -184,55 +211,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>maxFR.loc[maxFR[<span class="st">"InletFlowrateKgps"</span>] <span class="op">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="11">
+
 <div>
 
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">InletPressureBara</th>
-<th data-quarto-table-cell-role="th">InletFlowrateKgps</th>
-<th data-quarto-table-cell-role="th">InletTemperatureCelsius</th>
-<th data-quarto-table-cell-role="th">ReservoirPressureBara</th>
-<th data-quarto-table-cell-role="th">WasTwoPhase</th>
-<th data-quarto-table-cell-role="th">WasLiquid</th>
-<th data-quarto-table-cell-role="th">FluidPressureAtReservoirBara</th>
-<th data-quarto-table-cell-role="th">FluidTemperatureAtReservoirCelsius</th>
-<th data-quarto-table-cell-role="th">FluidPhaseAtReservoir</th>
-<th data-quarto-table-cell-role="th">PressureStatus</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">9501</td>
-<td>69</td>
-<td>3</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>68.873411</td>
-<td>9.826676</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8446</td>
-<td>77</td>
-<td>2</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>76.904508</td>
-<td>10.159886</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>InletPressureBara</th>
+      <th>InletFlowrateKgps</th>
+      <th>InletTemperatureCelsius</th>
+      <th>ReservoirPressureBara</th>
+      <th>WasTwoPhase</th>
+      <th>WasLiquid</th>
+      <th>FluidPressureAtReservoirBara</th>
+      <th>FluidTemperatureAtReservoirCelsius</th>
+      <th>FluidPhaseAtReservoir</th>
+      <th>PressureStatus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9501</th>
+      <td>69</td>
+      <td>3</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>68.873411</td>
+      <td>9.826676</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>8446</th>
+      <td>77</td>
+      <td>2</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>76.904508</td>
+      <td>10.159886</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+  </tbody>
 </table>
-
 </div>
 </div>
 </div>
@@ -382,172 +408,171 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="20">
+
 <div>
 
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">InletPressureBara</th>
-<th data-quarto-table-cell-role="th">InletFlowrateKgps</th>
-<th data-quarto-table-cell-role="th">InletTemperatureCelsius</th>
-<th data-quarto-table-cell-role="th">ReservoirPressureBara</th>
-<th data-quarto-table-cell-role="th">WasTwoPhase</th>
-<th data-quarto-table-cell-role="th">WasLiquid</th>
-<th data-quarto-table-cell-role="th">FluidPressureAtReservoirBara</th>
-<th data-quarto-table-cell-role="th">FluidTemperatureAtReservoirCelsius</th>
-<th data-quarto-table-cell-role="th">FluidPhaseAtReservoir</th>
-<th data-quarto-table-cell-role="th">PressureStatus</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>140</td>
-<td>132</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>88.854647</td>
-<td>6.548960</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>140</td>
-<td>131</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>89.481044</td>
-<td>6.567070</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>140</td>
-<td>130</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>90.101845</td>
-<td>6.684956</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>140</td>
-<td>129</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>90.724649</td>
-<td>6.747347</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>140</td>
-<td>128</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>91.347769</td>
-<td>6.637653</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">17951</td>
-<td>5</td>
-<td>1</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>False</td>
-<td>4.743071</td>
-<td>9.856658</td>
-<td>Gas</td>
-<td>Low</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">18082</td>
-<td>4</td>
-<td>2</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>False</td>
-<td>2.574622</td>
-<td>9.226031</td>
-<td>Gas</td>
-<td>Low</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">18083</td>
-<td>4</td>
-<td>1</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>False</td>
-<td>3.672233</td>
-<td>9.735752</td>
-<td>Gas</td>
-<td>Low</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">18215</td>
-<td>3</td>
-<td>1</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>False</td>
-<td>2.544230</td>
-<td>9.766071</td>
-<td>Gas</td>
-<td>Low</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">18347</td>
-<td>2</td>
-<td>1</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>False</td>
-<td>1.207896</td>
-<td>9.627365</td>
-<td>Gas</td>
-<td>Low</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>InletPressureBara</th>
+      <th>InletFlowrateKgps</th>
+      <th>InletTemperatureCelsius</th>
+      <th>ReservoirPressureBara</th>
+      <th>WasTwoPhase</th>
+      <th>WasLiquid</th>
+      <th>FluidPressureAtReservoirBara</th>
+      <th>FluidTemperatureAtReservoirCelsius</th>
+      <th>FluidPhaseAtReservoir</th>
+      <th>PressureStatus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>140</td>
+      <td>132</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>88.854647</td>
+      <td>6.548960</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>140</td>
+      <td>131</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>89.481044</td>
+      <td>6.567070</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>140</td>
+      <td>130</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>90.101845</td>
+      <td>6.684956</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>140</td>
+      <td>129</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>90.724649</td>
+      <td>6.747347</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>140</td>
+      <td>128</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>91.347769</td>
+      <td>6.637653</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>17951</th>
+      <td>5</td>
+      <td>1</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>False</td>
+      <td>4.743071</td>
+      <td>9.856658</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>18082</th>
+      <td>4</td>
+      <td>2</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2.574622</td>
+      <td>9.226031</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>18083</th>
+      <td>4</td>
+      <td>1</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>False</td>
+      <td>3.672233</td>
+      <td>9.735752</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>18215</th>
+      <td>3</td>
+      <td>1</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>False</td>
+      <td>2.544230</td>
+      <td>9.766071</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>18347</th>
+      <td>2</td>
+      <td>1</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>False</td>
+      <td>1.207896</td>
+      <td>9.627365</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+  </tbody>
 </table>
-
 <p>10326 rows × 10 columns</p>
 </div>
 </div>
@@ -556,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </section>
 
-</main> <!-- /main -->
+<p><a href="https://github.com/Jerell/dtdiag">GitHub</a></p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -584,23 +609,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -665,92 +676,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
