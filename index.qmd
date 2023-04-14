@@ -58,11 +58,10 @@ def draw_plot(df_plot, pressureBara, temperatureCelsius):
 
 ```
 
-```{python}
-# | label: fig-nw69bara
-# | fig-cap: No well - 69 Bara, 10°C
+The first of these, at 69 bara, entered two phase at 1 kgps, leaving 2 kgps as the lowest flowrate datapoint remaining. The other actually peaked at 2 kgps.
 
-draw_plot(df, 69, 10)
+```{python}
+df.loc[(df["InletPressureBara"] == 77) & (df["InletFlowrateKgps"] <= 3)]
 ```
 
 ```{python}

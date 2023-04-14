@@ -183,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>]</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>maxFR.loc[maxFR[<span class="st">"InletFlowrateKgps"</span>] <span class="op">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
@@ -268,17 +268,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p>The first of these, at 69 bara, entered two phase at 1 kgps, leaving 2 kgps as the lowest flowrate datapoint remaining. The other actually peaked at 2 kgps.</p>
 <div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">69</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.loc[(df[<span class="st">"InletPressureBara"</span>] <span class="op">==</span> <span class="dv">77</span>) <span class="op">&amp;</span> (df[<span class="st">"InletFlowrateKgps"</span>] <span class="op">&lt;=</span> <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<div id="fig-nw69bara" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-nw69bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: No well - 69 Bara, 10°C</figcaption><p></p>
-</figure>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">InletPressureBara</th>
+<th data-quarto-table-cell-role="th">InletFlowrateKgps</th>
+<th data-quarto-table-cell-role="th">InletTemperatureCelsius</th>
+<th data-quarto-table-cell-role="th">ReservoirPressureBara</th>
+<th data-quarto-table-cell-role="th">WasTwoPhase</th>
+<th data-quarto-table-cell-role="th">WasLiquid</th>
+<th data-quarto-table-cell-role="th">FluidPressureAtReservoirBara</th>
+<th data-quarto-table-cell-role="th">FluidTemperatureAtReservoirCelsius</th>
+<th data-quarto-table-cell-role="th">FluidPhaseAtReservoir</th>
+<th data-quarto-table-cell-role="th">PressureStatus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8445</td>
+<td>77</td>
+<td>3</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>True</td>
+<td>76.875026</td>
+<td>9.916840</td>
+<td>Liquid</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8446</td>
+<td>77</td>
+<td>2</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>True</td>
+<td>76.904508</td>
+<td>10.159886</td>
+<td>Liquid</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8447</td>
+<td>77</td>
+<td>1</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>True</td>
+<td>76.895610</td>
+<td>9.810933</td>
+<td>Liquid</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 </div>
@@ -291,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-nw77bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-nw77bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: No well - 77 Bara, 10°C</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: No well - 77 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -300,7 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="two-phase-and-discontinuities" class="level2">
 <h2 class="anchored" data-anchor-id="two-phase-and-discontinuities">Two phase and discontinuities</h2>
 <p>There is often, but not always, an outlet pressure discontinuity in cases that have entered the two phase region at or before the final pipe segment.</p>
-<p>In <a href="#fig-nw80bara">Figure&nbsp;3</a>, the discontinuity is early in the set of cases that entered two phase.</p>
+<p>In <a href="#fig-nw80bara">Figure&nbsp;2</a>, the discontinuity is early in the set of cases that entered two phase.</p>
 <div class="cell" data-execution_count="5">
 <details>
 <summary>Code</summary>
@@ -310,12 +368,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-nw80bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-nw80bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: No well - 80 Bara, 10°C</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: No well - 80 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Despite entering two phase, there was no discontinuity in <a href="#fig-nw45bara">Figure&nbsp;4</a>. It doesn’t seem to be the case that <em>just</em> entering the two phase region will cause a discontinuity. It could be related to where it happens, from which direction, or what pressure it happens at.</p>
+<p>Despite entering two phase, there was no discontinuity in <a href="#fig-nw45bara">Figure&nbsp;3</a>. It doesn’t seem to be the case that <em>just</em> entering the two phase region will cause a discontinuity. It could be related to where it happens, from which direction, or what pressure it happens at.</p>
 <div class="cell" data-execution_count="6">
 <details>
 <summary>Code</summary>
@@ -325,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-nw45bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-nw45bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: No well - 45 Bara, 10°C</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: No well - 45 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -339,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-nw40bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-nw40bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: No well - 40 Bara, 10°C</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: No well - 40 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -353,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-nw72bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-nw72bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6: No well - 72 Bara, 10°C</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5: No well - 72 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -367,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-nw71bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-nw71bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7: No well - 71 Bara, 10°C</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6: No well - 71 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -381,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-nw70bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-nw70bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8: No well - 70 Bara, 10°C</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7: No well - 70 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -394,7 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
