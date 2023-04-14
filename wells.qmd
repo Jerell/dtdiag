@@ -1,0 +1,75 @@
+---
+title: "Wells"
+format:
+  html:
+    code-fold: true
+---
+
+## Flowrate/Pressure peaks
+
+Including wells and perforations in the network causes more flowrate/pressure peaks past 1 kgps, which makes sense because the analogue functions were fit to data in the expected operating range, not the edge cases explored during the search. We're extrapolating instead of interpolating when we plug in low flowrates.
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+
+df = pd.read_csv(
+    "./dt/solver-out-2023-04-13_183146688_(temp=10C, inc=1)_has-Well+Perf.txt"
+)
+df = df.loc[df["FluidPressureAtReservoirBara"] > 0.01]
+noTwoPhase = df.loc[df["WasTwoPhase"] == False]
+
+grouped = noTwoPhase.groupby("InletPressureBara")
+maxFR = noTwoPhase.loc[
+    noTwoPhase.groupby("InletPressureBara")["FluidPressureAtReservoirBara"].idxmax()
+]
+maxFR.loc[maxFR["InletFlowrateKgps"] > 1]
+```
+
+```{python}
+
+colors = {False: "tab:blue", True: "tab:orange"}
+
+
+def draw_plot(df_plot, pressureBara, temperatureCelsius):
+    df_plot = df_plot.dropna()
+    df_plot = df_plot[(df_plot["InletPressureBara"] == pressureBara)]
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    ax.scatter(
+        df_plot["InletFlowrateKgps"],
+        df_plot["FluidPressureAtReservoirBara"],
+        c=df_plot["WasTwoPhase"].map(colors),
+    )
+    ax.set_xlabel("Inlet flowrate")
+    ax.set_ylabel("Outlet pressure")
+
+    handles = [
+        Line2D(
+            [0], [0], marker="o", color="w", markerfacecolor=v, label=k, markersize=8
+        )
+        for k, v in colors.items()
+    ]
+    ax.legend(
+        title="WasTwoPhase", handles=handles, bbox_to_anchor=(1.05, 1), loc="upper left"
+    )
+    plt.grid()
+    plt.show()
+
+
+```
+
+
+```{python}
+# | label: fig-w77bara
+# | fig-cap: Well and perf - 77 Bara, 10°C
+
+draw_plot(df, 77, 10)
+```
+
+# [Data](dt/solver-out-2023-04-13_183146688_(temp=10C, inc=1)_has-Well+Perf.txt)
+
+```{python}
+df
+```

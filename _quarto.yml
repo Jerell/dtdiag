@@ -10,6 +10,7 @@ website:
     left:
       - href: index.qmd
         text: No wells
+      - wells.qmd
 
 format:
   html:

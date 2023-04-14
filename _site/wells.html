@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Flowrate and outlet pressure – pressure-data</title>
+<title>Flowrate and outlet pressure - Wells</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,7 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Flowrate and outlet pressure</span>
     </a>
   </div>
@@ -118,11 +118,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">No wells</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../wells.html" rel="" target="">
+    <a class="nav-link active" href="./wells.html" rel="" target="" aria-current="page">
  <span class="menu-text">Wells</span></a>
   </li>  
 </ul>
@@ -137,162 +137,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#flowratepressure-peaks" id="toc-flowratepressure-peaks" class="nav-link active" data-scroll-target="#flowratepressure-peaks">Flowrate/Pressure peaks</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Jerell/dtdiag/edit/main/wells.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Jerell/dtdiag/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Wells</h1>
+</div>
 
 
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="flowratepressure-peaks" class="level2">
+<h2 class="anchored" data-anchor-id="flowratepressure-peaks">Flowrate/Pressure peaks</h2>
+<p>Including wells and perforations in the network causes more flowrate/pressure peaks past 1 kgps, which makes sense because the analogue functions were fit to data in the expected operating range, not the edge cases explored during the search. We’re extrapolating instead of interpolating when we plug in low flowrates.</p>
 <div class="cell" data-execution_count="1">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.lines <span class="im">import</span> Line2D</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'./solver-out-2023-04-13_151111322_(temp=10C, inc=1).txt'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(<span class="st">'./solver-out-2023-04-13_183146688_(temp=10C, inc=1)_has-Well+Perf.txt'</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">InletPressureBara</th>
-<th data-quarto-table-cell-role="th">InletFlowrateKgps</th>
-<th data-quarto-table-cell-role="th">InletTemperatureCelsius</th>
-<th data-quarto-table-cell-role="th">ReservoirPressureBara</th>
-<th data-quarto-table-cell-role="th">WasTwoPhase</th>
-<th data-quarto-table-cell-role="th">WasLiquid</th>
-<th data-quarto-table-cell-role="th">FluidPressureAtReservoirBara</th>
-<th data-quarto-table-cell-role="th">FluidTemperatureAtReservoirCelsius</th>
-<th data-quarto-table-cell-role="th">FluidPhaseAtReservoir</th>
-<th data-quarto-table-cell-role="th">PressureStatus</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>140</td>
-<td>132</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>88.854647</td>
-<td>6.548960</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>140</td>
-<td>131</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>89.481044</td>
-<td>6.567070</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>140</td>
-<td>130</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>90.101845</td>
-<td>6.684956</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>140</td>
-<td>129</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>90.724649</td>
-<td>6.747347</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>140</td>
-<td>128</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>91.347769</td>
-<td>6.637653</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="va">False</span>:<span class="st">'tab:blue'</span>, <span class="va">True</span>:<span class="st">'tab:orange'</span>}</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_plot(df_plot, pressureBara, temperatureCelsius):</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Pressure = </span><span class="sc">{</span>pressureBara<span class="sc">}</span><span class="ss"> Bara @ </span><span class="sc">{</span>temperatureCelsius<span class="sc">}</span><span class="ss">C'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    df_plot <span class="op">=</span> df_plot.dropna()</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    df_plot <span class="op">=</span> df_plot[(df_plot[<span class="st">'InletPressureBara'</span>] <span class="op">==</span> pressureBara)]</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.add_subplot()</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ax.scatter(df_plot[<span class="st">'InletFlowrateKgps'</span>], df_plot[<span class="st">'FluidPressureAtReservoirBara'</span>], c<span class="op">=</span>df_plot[<span class="st">'WasTwoPhase'</span>].<span class="bu">map</span>(colors))</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">'Inlet flowrate'</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Outlet pressure'</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    handles <span class="op">=</span> [Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'w'</span>, markerfacecolor<span class="op">=</span>v, label<span class="op">=</span>k, markersize<span class="op">=</span><span class="dv">8</span>) <span class="cf">for</span> k, v <span class="kw">in</span> colors.items()]</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    ax.legend(title<span class="op">=</span><span class="st">'WasTwoPhase'</span>, handles<span class="op">=</span>handles, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    plt.grid()</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">69</span>, <span class="dv">10</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">77</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Pressure = 69 Bara @ 10C
-Pressure = 77 Bara @ 10C</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="pressure-data_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="pressure-data_files/figure-html/cell-5-output-3.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df2, <span class="dv">69</span>, <span class="dv">10</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>draw_plot(df2, <span class="dv">77</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Pressure = 69 Bara @ 10C
-Pressure = 77 Bara @ 10C</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="pressure-data_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="pressure-data_files/figure-html/cell-6-output-3.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.lines <span class="im">import</span> Line2D</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"./dt/solver-out-2023-04-13_183146688_(temp=10C, inc=1)_has-Well+Perf.txt"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.loc[df[<span class="st">"FluidPressureAtReservoirBara"</span>] <span class="op">&gt;</span> <span class="fl">0.01</span>]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>noTwoPhase <span class="op">=</span> df.loc[df[<span class="st">"WasTwoPhase"</span>] <span class="op">==</span> <span class="va">False</span>]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> noTwoPhase.groupby(<span class="st">"InletPressureBara"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>maxFR <span class="op">=</span> noTwoPhase.loc[</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    noTwoPhase.groupby(<span class="st">"InletPressureBara"</span>)[<span class="st">"FluidPressureAtReservoirBara"</span>].idxmax()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>maxFR.loc[maxFR[<span class="st">"InletFlowrateKgps"</span>] <span class="op">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -315,6 +210,136 @@ Pressure = 77 Bara @ 10C</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
+<td data-quarto-table-cell-role="th">18082</td>
+<td>4</td>
+<td>2</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>False</td>
+<td>34.999589</td>
+<td>43.110923</td>
+<td>Gas</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17949</td>
+<td>5</td>
+<td>3</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>False</td>
+<td>34.888860</td>
+<td>42.755118</td>
+<td>Gas</td>
+<td>Low</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17816</td>
+<td>6</td>
+<td>4</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>False</td>
+<td>35.245076</td>
+<td>42.860507</td>
+<td>Gas</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17684</td>
+<td>7</td>
+<td>4</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>False</td>
+<td>33.915630</td>
+<td>40.369753</td>
+<td>Gas</td>
+<td>Low</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17551</td>
+<td>8</td>
+<td>5</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>False</td>
+<td>33.849902</td>
+<td>39.925005</td>
+<td>Gas</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">529</td>
+<td>136</td>
+<td>131</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>True</td>
+<td>135.000000</td>
+<td>10.500229</td>
+<td>Liquid</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">396</td>
+<td>137</td>
+<td>132</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>True</td>
+<td>135.000000</td>
+<td>10.300497</td>
+<td>Liquid</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">264</td>
+<td>138</td>
+<td>132</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>True</td>
+<td>135.000000</td>
+<td>10.248713</td>
+<td>Liquid</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">132</td>
+<td>139</td>
+<td>132</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>True</td>
+<td>135.000000</td>
+<td>10.234918</td>
+<td>Liquid</td>
+<td>High</td>
+</tr>
+<tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>140</td>
 <td>132</td>
@@ -322,8 +347,103 @@ Pressure = 77 Bara @ 10C</code></pre>
 <td>40</td>
 <td>False</td>
 <td>True</td>
-<td>88.854647</td>
-<td>6.548960</td>
+<td>135.000000</td>
+<td>10.134761</td>
+<td>Liquid</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+
+<p>82 rows × 10 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="va">False</span>: <span class="st">"tab:blue"</span>, <span class="va">True</span>: <span class="st">"tab:orange"</span>}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_plot(df_plot, pressureBara, temperatureCelsius):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    df_plot <span class="op">=</span> df_plot.dropna()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    df_plot <span class="op">=</span> df_plot[(df_plot[<span class="st">"InletPressureBara"</span>] <span class="op">==</span> pressureBara)]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.add_subplot()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    ax.scatter(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        df_plot[<span class="st">"InletFlowrateKgps"</span>],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        df_plot[<span class="st">"FluidPressureAtReservoirBara"</span>],</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        c<span class="op">=</span>df_plot[<span class="st">"WasTwoPhase"</span>].<span class="bu">map</span>(colors),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"Inlet flowrate"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">"Outlet pressure"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    handles <span class="op">=</span> [</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        Line2D(</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            [<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">"o"</span>, color<span class="op">=</span><span class="st">"w"</span>, markerfacecolor<span class="op">=</span>v, label<span class="op">=</span>k, markersize<span class="op">=</span><span class="dv">8</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> k, v <span class="kw">in</span> colors.items()</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    ax.legend(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"WasTwoPhase"</span>, handles<span class="op">=</span>handles, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">"upper left"</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    plt.grid()</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">77</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-w77bara" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="wells_files/figure-html/fig-w77bara-output-1.png" width="728" height="429" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Well and perf - 77 Bara, 10°C</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="data" class="level1">
+<h1><a href="dt/solver-out-2023-04-13_183146688_(temp=10C, inc=1)_has-Well+Perf.txt">Data</a></h1>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">InletPressureBara</th>
+<th data-quarto-table-cell-role="th">InletFlowrateKgps</th>
+<th data-quarto-table-cell-role="th">InletTemperatureCelsius</th>
+<th data-quarto-table-cell-role="th">ReservoirPressureBara</th>
+<th data-quarto-table-cell-role="th">WasTwoPhase</th>
+<th data-quarto-table-cell-role="th">WasLiquid</th>
+<th data-quarto-table-cell-role="th">FluidPressureAtReservoirBara</th>
+<th data-quarto-table-cell-role="th">FluidTemperatureAtReservoirCelsius</th>
+<th data-quarto-table-cell-role="th">FluidPhaseAtReservoir</th>
+<th data-quarto-table-cell-role="th">PressureStatus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>140</td>
+<td>132</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>True</td>
+<td>135.000000</td>
+<td>10.134761</td>
 <td>Liquid</td>
 <td>High</td>
 </tr>
@@ -335,8 +455,8 @@ Pressure = 77 Bara @ 10C</code></pre>
 <td>40</td>
 <td>False</td>
 <td>True</td>
-<td>89.481044</td>
-<td>6.567070</td>
+<td>135.000000</td>
+<td>10.089780</td>
 <td>Liquid</td>
 <td>High</td>
 </tr>
@@ -348,8 +468,8 @@ Pressure = 77 Bara @ 10C</code></pre>
 <td>40</td>
 <td>False</td>
 <td>True</td>
-<td>90.101845</td>
-<td>6.684956</td>
+<td>135.000000</td>
+<td>10.162974</td>
 <td>Liquid</td>
 <td>High</td>
 </tr>
@@ -361,8 +481,8 @@ Pressure = 77 Bara @ 10C</code></pre>
 <td>40</td>
 <td>False</td>
 <td>True</td>
-<td>90.724649</td>
-<td>6.747347</td>
+<td>135.000000</td>
+<td>10.170906</td>
 <td>Liquid</td>
 <td>High</td>
 </tr>
@@ -374,243 +494,99 @@ Pressure = 77 Bara @ 10C</code></pre>
 <td>40</td>
 <td>False</td>
 <td>True</td>
-<td>91.347769</td>
-<td>6.637653</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>noTwoPhase <span class="op">=</span> df.loc[(df[<span class="st">'WasTwoPhase'</span>] <span class="op">==</span> <span class="va">False</span>) <span class="op">&amp;</span> (df[<span class="st">'FluidPressureAtReservoirBara'</span>] <span class="op">&gt;</span> <span class="fl">0.01</span>)]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>noTwoPhase.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">InletPressureBara</th>
-<th data-quarto-table-cell-role="th">InletFlowrateKgps</th>
-<th data-quarto-table-cell-role="th">InletTemperatureCelsius</th>
-<th data-quarto-table-cell-role="th">ReservoirPressureBara</th>
-<th data-quarto-table-cell-role="th">WasTwoPhase</th>
-<th data-quarto-table-cell-role="th">WasLiquid</th>
-<th data-quarto-table-cell-role="th">FluidPressureAtReservoirBara</th>
-<th data-quarto-table-cell-role="th">FluidTemperatureAtReservoirCelsius</th>
-<th data-quarto-table-cell-role="th">FluidPhaseAtReservoir</th>
-<th data-quarto-table-cell-role="th">PressureStatus</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>140</td>
-<td>132</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>88.854647</td>
-<td>6.548960</td>
+<td>134.999422</td>
+<td>9.978292</td>
 <td>Liquid</td>
 <td>High</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>140</td>
-<td>131</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>89.481044</td>
-<td>6.567070</td>
-<td>Liquid</td>
-<td>High</td>
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>140</td>
-<td>130</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>90.101845</td>
-<td>6.684956</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>140</td>
-<td>129</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>90.724649</td>
-<td>6.747347</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>140</td>
-<td>128</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>91.347769</td>
-<td>6.637653</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> noTwoPhase.groupby(<span class="st">'InletPressureBara'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>maxFR <span class="op">=</span> noTwoPhase.loc[noTwoPhase.groupby(<span class="st">'InletPressureBara'</span>)[<span class="st">'FluidPressureAtReservoirBara'</span>].idxmax()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>maxFR.loc[maxFR[<span class="st">'InletFlowrateKgps'</span>] <span class="op">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">InletPressureBara</th>
-<th data-quarto-table-cell-role="th">InletFlowrateKgps</th>
-<th data-quarto-table-cell-role="th">InletTemperatureCelsius</th>
-<th data-quarto-table-cell-role="th">ReservoirPressureBara</th>
-<th data-quarto-table-cell-role="th">WasTwoPhase</th>
-<th data-quarto-table-cell-role="th">WasLiquid</th>
-<th data-quarto-table-cell-role="th">FluidPressureAtReservoirBara</th>
-<th data-quarto-table-cell-role="th">FluidTemperatureAtReservoirCelsius</th>
-<th data-quarto-table-cell-role="th">FluidPhaseAtReservoir</th>
-<th data-quarto-table-cell-role="th">PressureStatus</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">9501</td>
-<td>69</td>
-<td>3</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>68.873411</td>
-<td>9.826676</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8446</td>
-<td>77</td>
-<td>2</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>76.904508</td>
-<td>10.159886</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.loc[(df[<span class="st">'InletPressureBara'</span>] <span class="op">==</span> <span class="dv">77</span>) <span class="op">&amp;</span> (df[<span class="st">'InletFlowrateKgps'</span>] <span class="op">&lt;=</span> <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">InletPressureBara</th>
-<th data-quarto-table-cell-role="th">InletFlowrateKgps</th>
-<th data-quarto-table-cell-role="th">InletTemperatureCelsius</th>
-<th data-quarto-table-cell-role="th">ReservoirPressureBara</th>
-<th data-quarto-table-cell-role="th">WasTwoPhase</th>
-<th data-quarto-table-cell-role="th">WasLiquid</th>
-<th data-quarto-table-cell-role="th">FluidPressureAtReservoirBara</th>
-<th data-quarto-table-cell-role="th">FluidTemperatureAtReservoirCelsius</th>
-<th data-quarto-table-cell-role="th">FluidPhaseAtReservoir</th>
-<th data-quarto-table-cell-role="th">PressureStatus</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8445</td>
-<td>77</td>
-<td>3</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>76.875026</td>
-<td>9.916840</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8446</td>
-<td>77</td>
-<td>2</td>
-<td>10</td>
-<td>40</td>
-<td>False</td>
-<td>True</td>
-<td>76.904508</td>
-<td>10.159886</td>
-<td>Liquid</td>
-<td>High</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8447</td>
-<td>77</td>
+<td data-quarto-table-cell-role="th">17951</td>
+<td>5</td>
 <td>1</td>
 <td>10</td>
 <td>40</td>
 <td>False</td>
-<td>True</td>
-<td>76.895610</td>
-<td>9.810933</td>
-<td>Liquid</td>
-<td>High</td>
+<td>False</td>
+<td>34.384404</td>
+<td>41.278461</td>
+<td>Gas</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18082</td>
+<td>4</td>
+<td>2</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>False</td>
+<td>34.999589</td>
+<td>43.110923</td>
+<td>Gas</td>
+<td>Low</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18083</td>
+<td>4</td>
+<td>1</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>False</td>
+<td>34.816496</td>
+<td>42.440157</td>
+<td>Gas</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18215</td>
+<td>3</td>
+<td>1</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>False</td>
+<td>35.315295</td>
+<td>43.755330</td>
+<td>Gas</td>
+<td>Low</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18347</td>
+<td>2</td>
+<td>1</td>
+<td>10</td>
+<td>40</td>
+<td>False</td>
+<td>False</td>
+<td>35.964165</td>
+<td>45.193010</td>
+<td>Gas</td>
+<td>Low</td>
 </tr>
 </tbody>
 </table>
 
+<p>10326 rows × 10 columns</p>
 </div>
 </div>
 </div>
 
 
+</section>
 
 <p><a href="https://github.com/Jerell/dtdiag">GitHub</a></p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -850,4 +826,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/Jerell/dtdiag/blob/main/dt/pressure-data.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Jerell/dtdiag/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
+</body></html>
