@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/Jerell/dtdiag/index.html</loc>
-    <lastmod>2023-04-14T08:54:24.666Z</lastmod>
+    <lastmod>2023-04-14T09:23:48.123Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Jerell/dtdiag/wells.html</loc>
+    <lastmod>2023-04-14T09:23:48.891Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Jerell/dtdiag/dt/pressure-data.html</loc>
-    <lastmod>2023-04-14T08:54:25.598Z</lastmod>
+    <lastmod>2023-04-14T09:23:49.251Z</lastmod>
   </url>
 </urlset>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Flowrate and outlet pressure - No wells</title>
+<title>Flowrate and outlet pressure - Wells</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,11 +146,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link" href="./index.html">
  <span class="menu-text">No wells</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wells.html">
+    <a class="nav-link active" href="./wells.html" aria-current="page">
  <span class="menu-text">Wells</span></a>
   </li>  
 </ul>
@@ -169,17 +169,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#flowratepressure-peaks" id="toc-flowratepressure-peaks" class="nav-link active" data-scroll-target="#flowratepressure-peaks">Flowrate/Pressure peaks</a></li>
-  <li><a href="#two-phase-and-discontinuities" id="toc-two-phase-and-discontinuities" class="nav-link" data-scroll-target="#two-phase-and-discontinuities">Two phase and discontinuities</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Jerell/dtdiag/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Jerell/dtdiag/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Jerell/dtdiag/edit/main/wells.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Jerell/dtdiag/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">No wells</h1>
+<h1 class="title">Wells</h1>
 </div>
 
 
@@ -196,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="flowratepressure-peaks" class="level2">
 <h2 class="anchored" data-anchor-id="flowratepressure-peaks">Flowrate/Pressure peaks</h2>
-<p>After excluding rows that entered the two phase region, there are two cases where the greatest outlet pressure for an inlet pressure was not at a flowrate of 1 kgps.</p>
+<p>Including wells and perforations in the network causes more flowrate/pressure peaks past 1 kgps, which makes sense because the analogue functions were fit to data in the expected operating range, not the edge cases explored during the search. We’re extrapolating instead of interpolating when we plug in low flowrates.</p>
 <div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
@@ -204,17 +203,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.lines <span class="im">import</span> Line2D</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"./dt/solver-out-2023-04-13_151111322_(temp=10C, inc=1).txt"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.loc[df[<span class="st">"FluidPressureAtReservoirBara"</span>] <span class="op">&gt;</span> <span class="fl">0.01</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>noTwoPhase <span class="op">=</span> df.loc[df[<span class="st">"WasTwoPhase"</span>] <span class="op">==</span> <span class="va">False</span>]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> noTwoPhase.groupby(<span class="st">"InletPressureBara"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>maxFR <span class="op">=</span> noTwoPhase.loc[</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    noTwoPhase.groupby(<span class="st">"InletPressureBara"</span>)[<span class="st">"FluidPressureAtReservoirBara"</span>].idxmax()</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>maxFR.loc[maxFR[<span class="st">"InletFlowrateKgps"</span>] <span class="op">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"./dt/solver-out-2023-04-13_183146688_(temp=10C, inc=1)_has-Well+Perf.txt"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.loc[df[<span class="st">"FluidPressureAtReservoirBara"</span>] <span class="op">&gt;</span> <span class="fl">0.01</span>]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>noTwoPhase <span class="op">=</span> df.loc[df[<span class="st">"WasTwoPhase"</span>] <span class="op">==</span> <span class="va">False</span>]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> noTwoPhase.groupby(<span class="st">"InletPressureBara"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>maxFR <span class="op">=</span> noTwoPhase.loc[</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    noTwoPhase.groupby(<span class="st">"InletPressureBara"</span>)[<span class="st">"FluidPressureAtReservoirBara"</span>].idxmax()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>maxFR.loc[maxFR[<span class="st">"InletFlowrateKgps"</span>] <span class="op">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
 
@@ -236,33 +237,151 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </thead>
   <tbody>
     <tr>
-      <th>9501</th>
-      <td>69</td>
-      <td>3</td>
-      <td>10</td>
-      <td>40</td>
-      <td>False</td>
-      <td>True</td>
-      <td>68.873411</td>
-      <td>9.826676</td>
-      <td>Liquid</td>
-      <td>High</td>
-    </tr>
-    <tr>
-      <th>8446</th>
-      <td>77</td>
+      <th>18082</th>
+      <td>4</td>
       <td>2</td>
       <td>10</td>
       <td>40</td>
       <td>False</td>
+      <td>False</td>
+      <td>34.999589</td>
+      <td>43.110923</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>17949</th>
+      <td>5</td>
+      <td>3</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>False</td>
+      <td>34.888860</td>
+      <td>42.755118</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>17816</th>
+      <td>6</td>
+      <td>4</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>False</td>
+      <td>35.245076</td>
+      <td>42.860507</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>17684</th>
+      <td>7</td>
+      <td>4</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>False</td>
+      <td>33.915630</td>
+      <td>40.369753</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>17551</th>
+      <td>8</td>
+      <td>5</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>False</td>
+      <td>33.849902</td>
+      <td>39.925005</td>
+      <td>Gas</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>529</th>
+      <td>136</td>
+      <td>131</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
       <td>True</td>
-      <td>76.904508</td>
-      <td>10.159886</td>
+      <td>135.000000</td>
+      <td>10.500229</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>137</td>
+      <td>132</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>135.000000</td>
+      <td>10.300497</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>264</th>
+      <td>138</td>
+      <td>132</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>135.000000</td>
+      <td>10.248713</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>139</td>
+      <td>132</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>135.000000</td>
+      <td>10.234918</td>
+      <td>Liquid</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>140</td>
+      <td>132</td>
+      <td>10</td>
+      <td>40</td>
+      <td>False</td>
+      <td>True</td>
+      <td>135.000000</td>
+      <td>10.134761</td>
       <td>Liquid</td>
       <td>High</td>
     </tr>
   </tbody>
 </table>
+<p>82 rows × 10 columns</p>
 </div>
 </div>
 </div>
@@ -298,190 +417,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>The first of these, at 69 bara, entered two phase at 1 kgps, leaving 2 kgps as the lowest flowrate datapoint remaining. The other actually peaked at 2 kgps.</p>
 <div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.loc[(df[<span class="st">"InletPressureBara"</span>] <span class="op">==</span> <span class="dv">77</span>) <span class="op">&amp;</span> (df[<span class="st">"InletFlowrateKgps"</span>] <span class="op">&lt;=</span> <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="3">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>InletPressureBara</th>
-      <th>InletFlowrateKgps</th>
-      <th>InletTemperatureCelsius</th>
-      <th>ReservoirPressureBara</th>
-      <th>WasTwoPhase</th>
-      <th>WasLiquid</th>
-      <th>FluidPressureAtReservoirBara</th>
-      <th>FluidTemperatureAtReservoirCelsius</th>
-      <th>FluidPhaseAtReservoir</th>
-      <th>PressureStatus</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>8445</th>
-      <td>77</td>
-      <td>3</td>
-      <td>10</td>
-      <td>40</td>
-      <td>False</td>
-      <td>True</td>
-      <td>76.875026</td>
-      <td>9.916840</td>
-      <td>Liquid</td>
-      <td>High</td>
-    </tr>
-    <tr>
-      <th>8446</th>
-      <td>77</td>
-      <td>2</td>
-      <td>10</td>
-      <td>40</td>
-      <td>False</td>
-      <td>True</td>
-      <td>76.904508</td>
-      <td>10.159886</td>
-      <td>Liquid</td>
-      <td>High</td>
-    </tr>
-    <tr>
-      <th>8447</th>
-      <td>77</td>
-      <td>1</td>
-      <td>10</td>
-      <td>40</td>
-      <td>False</td>
-      <td>True</td>
-      <td>76.895610</td>
-      <td>9.810933</td>
-      <td>Liquid</td>
-      <td>High</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="4">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">77</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">77</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-nw77bara" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-w77bara" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig-nw77bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: No well - 77 Bara, 10°C</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="two-phase-and-discontinuities" class="level2">
-<h2 class="anchored" data-anchor-id="two-phase-and-discontinuities">Two phase and discontinuities</h2>
-<p>There is often, but not always, an outlet pressure discontinuity in cases that have entered the two phase region at or before the final pipe segment.</p>
-<p>In <a href="#fig-nw80bara">Figure&nbsp;2</a>, the discontinuity is early in the set of cases that entered two phase.</p>
-<div class="cell" data-execution_count="5">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">80</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-nw80bara" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-nw80bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: No well - 80 Bara, 10°C</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Despite entering two phase, there was no discontinuity in <a href="#fig-nw45bara">Figure&nbsp;3</a>. It doesn’t seem to be the case that <em>just</em> entering the two phase region will cause a discontinuity. It could be related to where it happens, from which direction, or what pressure it happens at.</p>
-<div class="cell" data-execution_count="6">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">45</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-nw45bara" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-nw45bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: No well - 45 Bara, 10°C</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="7">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">40</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-nw40bara" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-nw40bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: No well - 40 Bara, 10°C</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="8">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">72</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-nw72bara" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-nw72bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: No well - 72 Bara, 10°C</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="9">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">71</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-nw71bara" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-nw71bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6: No well - 71 Bara, 10°C</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="10">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>draw_plot(df, <span class="dv">70</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-nw70bara" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-nw70bara-output-1.png" width="720" height="429" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7: No well - 70 Bara, 10°C</figcaption><p></p>
+<p><img src="wells_files/figure-html/fig-w77bara-output-1.png" width="728" height="429" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Well and perf - 77 Bara, 10°C</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="data" class="level1">
-<h1><a href="dt/solver-out-2023-04-13_151111322_(temp=10C, inc=1).txt">Data</a></h1>
-<div class="cell" data-execution_count="11">
+<h1><a href="dt/solver-out-2023-04-13_183146688_(temp=10C, inc=1)_has-Well+Perf.txt">Data</a></h1>
+<div class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="8">
 
 <div>
 
@@ -510,8 +468,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>True</td>
-      <td>88.854647</td>
-      <td>6.548960</td>
+      <td>135.000000</td>
+      <td>10.134761</td>
       <td>Liquid</td>
       <td>High</td>
     </tr>
@@ -523,8 +481,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>True</td>
-      <td>89.481044</td>
-      <td>6.567070</td>
+      <td>135.000000</td>
+      <td>10.089780</td>
       <td>Liquid</td>
       <td>High</td>
     </tr>
@@ -536,8 +494,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>True</td>
-      <td>90.101845</td>
-      <td>6.684956</td>
+      <td>135.000000</td>
+      <td>10.162974</td>
       <td>Liquid</td>
       <td>High</td>
     </tr>
@@ -549,8 +507,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>True</td>
-      <td>90.724649</td>
-      <td>6.747347</td>
+      <td>135.000000</td>
+      <td>10.170906</td>
       <td>Liquid</td>
       <td>High</td>
     </tr>
@@ -562,8 +520,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>True</td>
-      <td>91.347769</td>
-      <td>6.637653</td>
+      <td>134.999422</td>
+      <td>9.978292</td>
       <td>Liquid</td>
       <td>High</td>
     </tr>
@@ -588,8 +546,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>False</td>
-      <td>4.743071</td>
-      <td>9.856658</td>
+      <td>34.384404</td>
+      <td>41.278461</td>
       <td>Gas</td>
       <td>Low</td>
     </tr>
@@ -601,8 +559,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>False</td>
-      <td>2.574622</td>
-      <td>9.226031</td>
+      <td>34.999589</td>
+      <td>43.110923</td>
       <td>Gas</td>
       <td>Low</td>
     </tr>
@@ -614,8 +572,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>False</td>
-      <td>3.672233</td>
-      <td>9.735752</td>
+      <td>34.816496</td>
+      <td>42.440157</td>
       <td>Gas</td>
       <td>Low</td>
     </tr>
@@ -627,8 +585,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>False</td>
-      <td>2.544230</td>
-      <td>9.766071</td>
+      <td>35.315295</td>
+      <td>43.755330</td>
       <td>Gas</td>
       <td>Low</td>
     </tr>
@@ -640,8 +598,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>40</td>
       <td>False</td>
       <td>False</td>
-      <td>1.207896</td>
-      <td>9.627365</td>
+      <td>35.964165</td>
+      <td>45.193010</td>
       <td>Gas</td>
       <td>Low</td>
     </tr>
